@@ -1,0 +1,4 @@
+/drivers-server/certs
+/drivers-server/logs
+/drivers-server/node_modules
+/drivers-server/public

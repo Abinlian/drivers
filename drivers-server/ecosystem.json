@@ -1,0 +1,9 @@
+{
+  "apps" : [{
+    "name"        : "drivers-server",
+    "script"      : "src/bin/run",
+    "env": {
+      "NODE_ENV": "development",
+    },
+  }]
+}
