@@ -1,7 +1,7 @@
 const router = require('koa-router')();
 
-const session_verifier = require('../middlewares/session_verifier');
-const permission_verifier = require('../middlewares/permission_verifier');
+const session_verifier = require('../../middlewares/session_verifier');
+const permission_verifier = require('../../middlewares/permission_verifier');
 
 const userCtrl = require('../controllers/user.ctrl');
 

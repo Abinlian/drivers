@@ -20,9 +20,10 @@ const ApiErrorTypes = require('./error/ApiErrorTypes');
 const config = require('./config/config')
 
 const index = require('./routes/index.router');
-const user = require('./routes/user.router');
 
-const userModel = require('./models/user');
+const user = require('./api/routes/user.router');
+
+const userModel = require('./api/models/user.model');
 
 // middlewares
 app.use(convert(bodyparser));
@@ -44,9 +45,11 @@ app.use(error_cather());
 setLoginRouter(router);
 setLogoutRouter(router);
 
-router.use('/', index.routes(), index.allowedMethods());
+router.use('/pages', index.routes(), index.allowedMethods());
+
 router.use('/api/users', user.routes(), user.allowedMethods());
-router.redirect('/*', '/');
+
+router.redirect('/*', '/pages/movies');
 
 app.use(router.routes(), router.allowedMethods());
 // response

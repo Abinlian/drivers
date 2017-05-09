@@ -1,4 +1,4 @@
-const { execute } = require('../utils/db');
+const { execute } = require('../../utils/db');
 
 exports.findOneById = function (id) {
   const sql = `

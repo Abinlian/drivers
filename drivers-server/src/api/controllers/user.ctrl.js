@@ -1,13 +1,13 @@
-const ApiError = require('../error/ApiError');
-const ApiErrorTypes = require('../error/ApiErrorTypes');
-const user = require('../models/user');
+const ApiError = require('../../error/ApiError');
+const ApiErrorTypes = require('../../error/ApiErrorTypes');
+const user = require('../models/user.model');
 
 const {
   isIntString,
   isFloatString,
   isBooleanString,
   isNotEmptyString
-} = require('../utils/validator');
+} = require('../../utils/validator');
 
 exports.retrieveOne = async (ctx, next) => {
 
