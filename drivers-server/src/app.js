@@ -23,7 +23,7 @@ const index = require('./routes/index.router');
 
 const user = require('./api/routes/user.router');
 
-const userModel = require('./api/models/user.model');
+const userModel = require('./models/user.model');
 
 // middlewares
 app.use(convert(bodyparser));

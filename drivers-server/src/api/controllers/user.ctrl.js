@@ -1,6 +1,6 @@
 const ApiError = require('../../error/ApiError');
 const ApiErrorTypes = require('../../error/ApiErrorTypes');
-const user = require('../models/user.model');
+const user = require('../../models/user.model');
 
 const {
   isIntString,
