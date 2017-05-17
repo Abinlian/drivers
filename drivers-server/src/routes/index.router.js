@@ -1,26 +1,36 @@
 var router = require('koa-router')();
 
 router.get('/movies', async function (ctx, next) {
-    
-  console.log(123);
+  
+  // database query
+  // let movies = database query
+  let movies = [
+      {
+        id: 1,
+        status: 'xc',
+        name: 'name1',
+        img_url: 'http://p0.meituan.net/movie/aeb864fa21d578d845b9cefc056e40cb2874891.jpg@160w_220h_1e_1c',
+        rating: 8.1
+      },
+      {
+        id: 2,
+        status: 'xc',
+        name: 'name2',
+        img_url: 'http://p0.meituan.net/movie/fbe5f97c016c9f4520109dc70f458d4d83363.jpg@160w_220h_1e_1c',
+        rating: 8.9
+      }
+  ];
 
-  ctx.state = {
-    title: 'Drivers 电影'
-  };
-
-  await ctx.render('index', {
-    page_name: '电影选择页面'
+  await ctx.render('movie-list', {
+    page_name: '电影选择页面',
+    movies: movies
   });
 
 });
 
 router.get('/movies/:movie_id', async function (ctx, next) {
-    
-  ctx.state = {
-    title: 'Drivers 电影'
-  };
 
-  await ctx.render('index', {
+  await ctx.render('movie-detail', {
     page_name: '电影详情页面'
   });
   

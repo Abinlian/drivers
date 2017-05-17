@@ -1,0 +1,73 @@
+html
+    head
+        title 猫眼电影 - 一网打尽好电影
+
+        link(rel="dns-prefetch" href="//p0.meituan.net")
+        link(rel="dns-prefetch" href="//p1.meituan.net")
+        link(rel="dns-prefetch" href="//ms0.meituan.net")
+        link(rel="dns-prefetch" href="//ms1.meituan.net")
+        link(rel="dns-prefetch" href="//analytics.meituan.com")
+        link(rel="dns-prefetch" href="//report.meituan.com")
+        link(rel="dns-prefetch" href="//frep.meituan.com")
+
+
+        meta(charset="utf-8")
+        meta(name="keywords" content="电影,电视剧,票房,美剧,猫眼电影,电影排行榜,电影票,经典电影,在线观看")
+        meta(name="description" content="猫眼电影致力于打造中国最大最全的电影信息资讯平台,在这里,海量影视资料应有尽有,热点影视讯息一网打尽,更有秒级实时票房,热门榜单,极致地满足您独特的观影口味")
+        meta(http-equiv="cleartype" content="yes")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="renderer" content="webkit")
+
+        meta(name="HandheldFriendly" content="true")
+        meta(name="format-detection" content="email=no")
+        meta(name="format-detection" content="telephone=no")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+
+
+        script(async="" src="https://s0.meituan.net/bs/js/?f=mta-js:mta.min.js")
+        script.
+            cid = 125104;
+            window.system = {};
+        link(rel="stylesheet" href="//ms0.meituan.net/mywww/common.dce64fb8.css")
+        link(rel="stylesheet" href="//ms0.meituan.net/mywww/home-index.ff98348e.css")
+        script(src="//ms0.meituan.net/mywww/stat.950a977c.js")
+        script(async="" defer="" charset="utf-8" src="//analytics.meituan.com/source/stable/web.js")
+        script.
+            if (window.devicePixelRatio = 2) { 
+                document.write('link(rel="stylesheet" href="//ms0.meituan.net/mywww/image-2x.8ba7074d.css"/'))
+            }
+
+        meta(name="msvalidate.01" content="F338006073F396CBBDA443AAB6A8BA47")
+        meta(name="360-site-verification" content="6f1d12912a62a74ce2f1b3c2e75f6c23")
+        meta(name="sogou_site_verification" content="uh9MkgvBm3")
+        style.
+            @font-face {
+                font-family: stonefont;
+                src: url('//p0.meituan.net/colorstone/7e25848f7d631d098ef0d8b3a6b6e8dc3168.eot');
+                src: url('//p0.meituan.net/colorstone/7e25848f7d631d098ef0d8b3a6b6e8dc3168.eot?#iefix') format('embedded-opentype'),
+                url('//p1.meituan.net/colorstone/e157f5a38e6cebbf790d49741d27805d2084.woff') format('woff');
+            }
+            .stonefont {
+                font-family: stonefont;
+            }
+
+
+
+    body
+        div(class="panel-content")
+            dl(class="movie-list")
+                dd
+                    each movie in movies
+                        div(class="movie-item")
+                            a(href="/pages/movies/#{movie.id}" target="_blank" data-act="playingMovie-click" data-val="{movieid:588362}")
+                                div(class="movie-poster")
+                                    img(class="poster-default" src="//ms0.meituan.net/mywww/image/loading_2.e3d934bf.png")
+                                    img(src="#{movie.img_url}")
+                                    div(class="movie-overlay movie-overlay-bg")
+                                        div(class="movie-info")
+                                            div(class="movie-score")
+                                                i(class="integer") #{movie.rating}
+                                            div(class="movie-title movie-title-padding" title="摔跤吧！爸爸") #{movie.name}
+                                div(class="movie-detail movie-detail-strong movie-sale")
+                                    a(href="http://www.meituan.com/dianying/588362?#content" class="active" target="_blank" data-act="salePlayingMovie-click" data-val="{movieid:588362}") 购票
+                                div(class="movie-ver")
