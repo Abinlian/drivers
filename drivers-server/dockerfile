@@ -1,0 +1,23 @@
+FROM node:7.10.0
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+ADD . /app
+
+RUN pwd
+
+# Install any needed packages specified
+RUN npm install
+
+# Make port available to the world outside this container
+EXPOSE 8000
+
+# Define environment variable
+# ENV NODE_ENV development
+
+# Run when the container launches
+# CMD ["npm", "start"]
+# CMD echo "This is a test."
+CMD npm start

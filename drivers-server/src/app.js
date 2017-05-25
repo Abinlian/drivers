@@ -45,7 +45,7 @@ app.use(error_cather());
 setLoginRouter(router);
 setLogoutRouter(router);
 
-router.use('/pages', index.routes(), index.allowedMethods());
+router.use('/', index.routes(), index.allowedMethods());
 
 router.use('/api/users', user.routes(), user.allowedMethods());
 

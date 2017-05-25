@@ -5,6 +5,9 @@ const permission_verifier = require('../../middlewares/permission_verifier');
 
 const userCtrl = require('../controllers/user.ctrl');
 
+router.get('/:user_id', session_verifier(), permission_verifier(), userCtrl.retrieveOne);
+router.post('/', userCtrl.create);
+
 /**
  * @api {get} /api/users/:id 获取用户详细信息
  * @apiName 获取用户详细信息
@@ -61,7 +64,6 @@ const userCtrl = require('../controllers/user.ctrl');
         "data": null
     }
  */
-router.get('/:user_id', session_verifier(), permission_verifier(), userCtrl.retrieveOne);
 
 /**
  * @api {post} /api/users 注册用户
@@ -80,9 +82,7 @@ router.get('/:user_id', session_verifier(), permission_verifier(), userCtrl.retr
         "status": ,
         "message": "success",
         "time": "2017-02-20T12:09:26.412Z",
-        "data": {
-            insert_id: 999
-        }
+        "data": null
     }
  * 
  * @apiErrorExample {json} UNKNOW_ERROR
@@ -107,6 +107,5 @@ router.get('/:user_id', session_verifier(), permission_verifier(), userCtrl.retr
         "data": null
     }
  */
-router.post('/', userCtrl.create);
 
 module.exports = router;

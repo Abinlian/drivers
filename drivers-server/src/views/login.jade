@@ -1,0 +1,27 @@
+doctype html
+html
+
+  head
+    meta(charset="utf-8")
+    link(rel="stylesheet" media="all" href="/stylesheets/login-register-base.css")
+    script(type="text/javascript" src="/javascripts/login.js")
+
+body
+
+<div id="login-page">
+<div id="explanation-text">欢迎来到 Drivers 电影</div>
+<div id="formContainer">
+
+<form id="login-form" action="/api/login" method="POST">
+
+<label for="username">用户名</label><br>
+<input type="text" name="username" id="username" size="30" maxlength="100" placeholder="your username"><br>
+<label for="password_hash">密码</label><br>
+<input type="password" name="password_hash" id="password_hash" placeholder="********"><br>
+
+<input class="fr" type="button" id="submit-button" name="submit-button" value="登录">
+
+</form>            
+</div>
+<div id="switch">没有账号? <a href="/register">注册</a></div>
+</div>

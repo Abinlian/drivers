@@ -1,0 +1,29 @@
+doctype html
+html
+
+  head
+    meta(charset="utf-8")
+    link(rel="stylesheet" media="all" href="/stylesheets/login-register-base.css")
+    script(type="text/javascript" src="/javascripts/register.js")
+
+body
+
+<div id="login-page">
+<div id="explanation-text">注册您的账号,只需花费您几分钟的时间...</div>
+<div id="formContainer">
+
+<form id="login-form" action="/api/users" method="POST">
+
+<label for="username">用户名</label><br>
+<input type="text" name="username" id="username" size="30" maxlength="100" placeholder="your username"><br>
+<label for="password_hash">密码</label><br>
+<input type="password" name="password_hash" id="password_hash" placeholder="********"><br>
+<label for="password_hash_comfirm">确认密码</label><br>
+<input type="password" name="password_hash_comfirm" id="password_hash_comfirm" placeholder="********"><br>
+
+<input class="fr" type="button" id="submit-button" name="submit-button" value="注册">
+
+</form>            
+</div>
+<div id="switch">已有账号? <a href="/login">登录</a></div>
+</div>

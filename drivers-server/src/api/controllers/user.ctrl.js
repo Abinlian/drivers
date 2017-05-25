@@ -44,6 +44,4 @@ exports.create = async (ctx, next) => {
 
     let record = await user.create(username, password_hash);
 
-    ctx.body = { insert_id: record.insertId };
-
 };
