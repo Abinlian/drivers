@@ -49,7 +49,7 @@ router.use('/', index.routes(), index.allowedMethods());
 
 router.use('/api/users', user.routes(), user.allowedMethods());
 
-// router.redirect('/*', '/pages/movies');
+router.redirect('/', '/login');
 
 app.use(router.routes(), router.allowedMethods());
 // response
