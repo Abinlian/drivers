@@ -1,73 +1,230 @@
+doctype html
+//if IE 8
+  html.ie8
+//if IE 9
+  html.ie9
+// [if gt IE 9] <!
 html
-    head
-        title 猫眼电影 - 一网打尽好电影
-
-        link(rel="dns-prefetch" href="//p0.meituan.net")
-        link(rel="dns-prefetch" href="//p1.meituan.net")
-        link(rel="dns-prefetch" href="//ms0.meituan.net")
-        link(rel="dns-prefetch" href="//ms1.meituan.net")
-        link(rel="dns-prefetch" href="//analytics.meituan.com")
-        link(rel="dns-prefetch" href="//report.meituan.com")
-        link(rel="dns-prefetch" href="//frep.meituan.com")
-
-
-        meta(charset="utf-8")
-        meta(name="keywords" content="电影,电视剧,票房,美剧,猫眼电影,电影排行榜,电影票,经典电影,在线观看")
-        meta(name="description" content="猫眼电影致力于打造中国最大最全的电影信息资讯平台,在这里,海量影视资料应有尽有,热点影视讯息一网打尽,更有秒级实时票房,热门榜单,极致地满足您独特的观影口味")
-        meta(http-equiv="cleartype" content="yes")
-        meta(http-equiv="X-UA-Compatible" content="IE=edge")
-        meta(name="renderer" content="webkit")
-
-        meta(name="HandheldFriendly" content="true")
-        meta(name="format-detection" content="email=no")
-        meta(name="format-detection" content="telephone=no")
-        meta(name="viewport" content="width=device-width, initial-scale=1")
-
-
-        script(async="" src="https://s0.meituan.net/bs/js/?f=mta-js:mta.min.js")
-        script.
-            cid = 125104;
-            window.system = {};
-        link(rel="stylesheet" href="//ms0.meituan.net/mywww/common.dce64fb8.css")
-        link(rel="stylesheet" href="//ms0.meituan.net/mywww/home-index.ff98348e.css")
-        script(src="//ms0.meituan.net/mywww/stat.950a977c.js")
-        script(async="" defer="" charset="utf-8" src="//analytics.meituan.com/source/stable/web.js")
-        script.
-            if (window.devicePixelRatio = 2) { 
-                document.write('link(rel="stylesheet" href="//ms0.meituan.net/mywww/image-2x.8ba7074d.css"/')
-            }
-
-        meta(name="msvalidate.01" content="F338006073F396CBBDA443AAB6A8BA47")
-        meta(name="360-site-verification" content="6f1d12912a62a74ce2f1b3c2e75f6c23")
-        meta(name="sogou_site_verification" content="uh9MkgvBm3")
-        style.
-            @font-face {
-                font-family: stonefont;
-                src: url('//p0.meituan.net/colorstone/7e25848f7d631d098ef0d8b3a6b6e8dc3168.eot');
-                src: url('//p0.meituan.net/colorstone/7e25848f7d631d098ef0d8b3a6b6e8dc3168.eot?#iefix') format('embedded-opentype'),
-                url('//p1.meituan.net/colorstone/e157f5a38e6cebbf790d49741d27805d2084.woff') format('woff');
-            }
-            .stonefont {
-                font-family: stonefont;
-            }
-
-
-
-    body
-        div(class="panel-content")
-            dl(class="movie-list")
+  // <![endif]
+  head
+    title 经典影片 - 猫眼电影 - 一网打尽好电影
+    link(rel='dns-prefetch', href='//p0.meituan.net')
+    link(rel='dns-prefetch', href='//p1.meituan.net')
+    link(rel='dns-prefetch', href='//ms0.meituan.net')
+    link(rel='dns-prefetch', href='//ms1.meituan.net')
+    link(rel='dns-prefetch', href='//analytics.meituan.com')
+    link(rel='dns-prefetch', href='//report.meituan.com')
+    link(rel='dns-prefetch', href='//frep.meituan.com')
+    meta(charset='utf-8')
+    meta(name='keywords', content='广州,正在热映,即将上映,经典电影')
+    meta(name='description', content='猫眼电影致力于打造中国最大最全的电影信息资讯平台,在这里,海量影视资料应有尽有,热点影视讯息一网打尽,更有秒级实时票房,热门榜单,极致地满足您独特的观影口味')
+    meta(http-equiv='cleartype', content='yes')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='renderer', content='webkit')
+    meta(name='HandheldFriendly', content='true')
+    meta(name='format-detection', content='email=no')
+    meta(name='format-detection', content='telephone=no')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(async='', src='https://s0.meituan.net/bs/js/?f=mta-js:mta.min.js')
+    script.
+      cid = 128431;
+      val = {"subnavId":3};    window.system = {};
+    link(rel='stylesheet', href='//ms0.meituan.net/mywww/common.dce64fb8.css')
+    link(rel='stylesheet', href='//ms0.meituan.net/mywww/movie-list.ffb4de4a.css')
+    script(src='//ms0.meituan.net/mywww/stat.950a977c.js')
+    script(async='', defer='', charset='utf-8', src='//analytics.meituan.com/source/stable/web.js')
+    script.
+      if(window.devicePixelRatio >= 2) { document.write('<link rel="stylesheet" href="//ms0.meituan.net/mywww/image-2x.8ba7074d.css"/>') }
+    style.
+      @font-face {
+      font-family: stonefont;
+      src: url('//p0.meituan.net/colorstone/322b91f1e8b12b2d9905657dae2ff92d3168.eot');
+      src: url('//p0.meituan.net/colorstone/322b91f1e8b12b2d9905657dae2ff92d3168.eot?#iefix') format('embedded-opentype'),
+      url('//p0.meituan.net/colorstone/91d194c5d10a913cac6decaf85c856ce2088.woff') format('woff');
+      }
+      .stonefont {
+      font-family: stonefont;
+      }
+  body
+    .header
+    .subnav
+      ul.navbar
+        li
+          a(data-act='subnav-click', data-val='{subnavClick:1}', href='?showType=1') 正在热映
+        li
+          a(data-act='subnav-click', data-val='{subnavClick:2}', href='?showType=2') 即将上映
+        li
+          a.active(data-act='subnav-click', data-val='{subnavClick:3}', data-state-val='{subnavId:3}', href='javascript:void(0);') 经典影片
+    #app.container
+      .movies-channel
+        .tags-panel
+          ul.tags-lines
+            li.tags-line(data-val="{tagTypeName:'cat'}")
+              .tags-title 类型 :
+              ul.tags
+                li.active(data-state-val="{ catTagName:'全部'}")
+                  a(data-act='tag-click', data-val="{TagName:'全部'}", href='javascript:void(0);', style='cursor: default') 全部
+                li
+                  a(data-act='tag-click', data-val="{TagName:'爱情'}", href='?catId=3') 爱情
+                li
+                  a(data-act='tag-click', data-val="{TagName:'喜剧'}", href='?catId=2') 喜剧
+                li
+                  a(data-act='tag-click', data-val="{TagName:'动画'}", href='?catId=4') 动画
+                li
+                  a(data-act='tag-click', data-val="{TagName:'剧情'}", href='?catId=1') 剧情
+                li
+                  a(data-act='tag-click', data-val="{TagName:'恐怖'}", href='?catId=6') 恐怖
+                li
+                  a(data-act='tag-click', data-val="{TagName:'惊悚'}", href='?catId=7') 惊悚
+                li
+                  a(data-act='tag-click', data-val="{TagName:'科幻'}", href='?catId=10') 科幻
+                li
+                  a(data-act='tag-click', data-val="{TagName:'动作'}", href='?catId=5') 动作
+                li
+                  a(data-act='tag-click', data-val="{TagName:'悬疑'}", href='?catId=8') 悬疑
+                li
+                  a(data-act='tag-click', data-val="{TagName:'犯罪'}", href='?catId=11') 犯罪
+                li
+                  a(data-act='tag-click', data-val="{TagName:'冒险'}", href='?catId=9') 冒险
+                li
+                  a(data-act='tag-click', data-val="{TagName:'战争'}", href='?catId=12') 战争
+                li
+                  a(data-act='tag-click', data-val="{TagName:'奇幻'}", href='?catId=14') 奇幻
+                li
+                  a(data-act='tag-click', data-val="{TagName:'运动'}", href='?catId=15') 运动
+                li
+                  a(data-act='tag-click', data-val="{TagName:'家庭'}", href='?catId=16') 家庭
+                li
+                  a(data-act='tag-click', data-val="{TagName:'古装'}", href='?catId=17') 古装
+                li
+                  a(data-act='tag-click', data-val="{TagName:'武侠'}", href='?catId=18') 武侠
+                li
+                  a(data-act='tag-click', data-val="{TagName:'西部'}", href='?catId=19') 西部
+                li
+                  a(data-act='tag-click', data-val="{TagName:'历史'}", href='?catId=20') 历史
+                li
+                  a(data-act='tag-click', data-val="{TagName:'传记'}", href='?catId=21') 传记
+                li
+                  a(data-act='tag-click', data-val="{TagName:'情色'}", href='?catId=22') 情色
+                li
+                  a(data-act='tag-click', data-val="{TagName:'歌舞'}", href='?catId=23') 歌舞
+                li
+                  a(data-act='tag-click', data-val="{TagName:'黑色电影'}", href='?catId=24') 黑色电影
+                li
+                  a(data-act='tag-click', data-val="{TagName:'短片'}", href='?catId=25') 短片
+                li
+                  a(data-act='tag-click', data-val="{TagName:'纪录片'}", href='?catId=13') 纪录片
+                li
+                  a(data-act='tag-click', data-val="{TagName:'其他'}", href='?catId=100') 其他
+            li.tags-line.tags-line-border(data-val="{tagTypeName:'source'}")
+              .tags-title 区域 :
+              ul.tags
+                li.active(data-state-val="{ sourceTagName:'全部'}")
+                  a(data-act='tag-click', data-val="{TagName:'全部'}", href='javascript:void(0);', style='cursor: default') 全部
+                li
+                  a(data-act='tag-click', data-val="{TagName:'大陆'}", href='?sourceId=2') 大陆
+                li
+                  a(data-act='tag-click', data-val="{TagName:'美国'}", href='?sourceId=3') 美国
+                li
+                  a(data-act='tag-click', data-val="{TagName:'韩国'}", href='?sourceId=7') 韩国
+                li
+                  a(data-act='tag-click', data-val="{TagName:'日本'}", href='?sourceId=6') 日本
+                li
+                  a(data-act='tag-click', data-val="{TagName:'中国香港'}", href='?sourceId=10') 中国香港
+                li
+                  a(data-act='tag-click', data-val="{TagName:'中国台湾'}", href='?sourceId=13') 中国台湾
+                li
+                  a(data-act='tag-click', data-val="{TagName:'泰国'}", href='?sourceId=9') 泰国
+                li
+                  a(data-act='tag-click', data-val="{TagName:'印度'}", href='?sourceId=8') 印度
+                li
+                  a(data-act='tag-click', data-val="{TagName:'法国'}", href='?sourceId=4') 法国
+                li
+                  a(data-act='tag-click', data-val="{TagName:'英国'}", href='?sourceId=5') 英国
+                li
+                  a(data-act='tag-click', data-val="{TagName:'俄罗斯'}", href='?sourceId=14') 俄罗斯
+                li
+                  a(data-act='tag-click', data-val="{TagName:'意大利'}", href='?sourceId=16') 意大利
+                li
+                  a(data-act='tag-click', data-val="{TagName:'西班牙'}", href='?sourceId=17') 西班牙
+                li
+                  a(data-act='tag-click', data-val="{TagName:'德国'}", href='?sourceId=11') 德国
+                li
+                  a(data-act='tag-click', data-val="{TagName:'波兰'}", href='?sourceId=19') 波兰
+                li
+                  a(data-act='tag-click', data-val="{TagName:'澳大利亚'}", href='?sourceId=20') 澳大利亚
+                li
+                  a(data-act='tag-click', data-val="{TagName:'伊朗'}", href='?sourceId=21') 伊朗
+                li
+                  a(data-act='tag-click', data-val="{TagName:'其他'}", href='?sourceId=100') 其他
+            li.tags-line.tags-line-border(data-val="{tagTypeName:'year'}")
+              .tags-title 年代 :
+              ul.tags
+                li.active(data-state-val="{ yearTagName:'全部'}")
+                  a(data-act='tag-click', data-val="{TagName:'全部'}", href='javascript:void(0);', style='cursor: default') 全部
+                li
+                  a(data-act='tag-click', data-val="{TagName:'2017以后'}", href='?yearId=13') 2017以后
+                li
+                  a(data-act='tag-click', data-val="{TagName:'2017'}", href='?yearId=12') 2017
+                li
+                  a(data-act='tag-click', data-val="{TagName:'2016'}", href='?yearId=11') 2016
+                li
+                  a(data-act='tag-click', data-val="{TagName:'2015'}", href='?yearId=10') 2015
+                li
+                  a(data-act='tag-click', data-val="{TagName:'2014'}", href='?yearId=9') 2014
+                li
+                  a(data-act='tag-click', data-val="{TagName:'2013'}", href='?yearId=8') 2013
+                li
+                  a(data-act='tag-click', data-val="{TagName:'2012'}", href='?yearId=7') 2012
+                li
+                  a(data-act='tag-click', data-val="{TagName:'2011'}", href='?yearId=6') 2011
+                li
+                  a(data-act='tag-click', data-val="{TagName:'2000-2010'}", href='?yearId=5') 2000-2010
+                li
+                  a(data-act='tag-click', data-val="{TagName:'90年代'}", href='?yearId=4') 90年代
+                li
+                  a(data-act='tag-click', data-val="{TagName:'80年代'}", href='?yearId=3') 80年代
+                li
+                  a(data-act='tag-click', data-val="{TagName:'70年代'}", href='?yearId=2') 70年代
+                li
+                  a(data-act='tag-click', data-val="{TagName:'更早'}", href='?yearId=1') 更早
+        .movies-panel
+          .movies-list
+            dl.movie-list
+              each movie in movies
                 dd
-                    each movie in movies
-                        div(class="movie-item")
-                            a(href="/pages/movies/#{movie.id}" target="_blank" data-act="playingMovie-click" data-val="{movieid:588362}")
-                                div(class="movie-poster")
-                                    img(class="poster-default" src="//ms0.meituan.net/mywww/image/loading_2.e3d934bf.png")
-                                    img(src="#{movie.img_url}")
-                                    div(class="movie-overlay movie-overlay-bg")
-                                        div(class="movie-info")
-                                            div(class="movie-score")
-                                                i(class="integer") #{movie.rating}
-                                            div(class="movie-title movie-title-padding" title="摔跤吧！爸爸") #{movie.name}
-                                div(class="movie-detail movie-detail-strong movie-sale")
-                                    a(href="http://www.meituan.com/dianying/588362?#content" class="active" target="_blank" data-act="salePlayingMovie-click" data-val="{movieid:588362}") 购票
-                                div(class="movie-ver")
+                  .movie-item
+                    a(href='/films/#{movie.id}', target='_blank', data-act='movie-click', data-val='{movieid:249895}')
+                      .movie-poster
+                        img.poster-default(src='//ms0.meituan.net/mywww/image/loading_2.e3d934bf.png')
+                        img(src='#{movie.img_url}')
+                    .movie-ver
+                      i.imax3d
+                  .channel-detail.movie-item-title(title='#{movie.name}')
+                    a(href='/films/249895', target='_blank', data-act='movies-click', data-val='{movieId:249895}')  #{movie.name}
+                  .channel-detail.channel-detail-orange  #{movie.rating}
+
+
+          .movies-pager
+            ul.list-pager
+              li.active
+                a.page_1(href='javascript:void(0);', style='cursor: default') 1
+              li
+                a.page_2(href='?offset=30') 2
+              li
+                a.page_3(href='?offset=60') 3
+              li
+                a.page_4(href='?offset=90') 4
+              li
+                a.page_5(href='?offset=120') 5
+              li.sep ...
+              li
+                a.page_10(href='?offset=270') 10
+              li
+                a.page_2(href='?offset=30') 下一页
+    //if IE 8
+      script(src='//ms0.meituan.net/mywww/es5-shim.bbad933f.js')
+    //if IE 8
+      script(src='//ms0.meituan.net/mywww/es5-sham.d6ea26f4.js')
+    script(src='//ms0.meituan.net/mywww/common.b7b6a947.js')
+    script(src='//ms0.meituan.net/mywww/movie-list.0cc7e872.js')
