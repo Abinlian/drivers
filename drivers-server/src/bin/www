@@ -14,6 +14,9 @@ var path = require('path');
 
 var config = require('../config/config.js');
 
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length;
+
 /**
  * Get port from environment and store in Express.
  */
@@ -21,11 +24,33 @@ var config = require('../config/config.js');
 var port = normalizePort(config.port);
 // app.set('port', port);
 
+if (cluster.isMaster) {
+  console.log(`Master ${process.pid} is running`);
+
+  // Fork workers.
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`worker ${worker.process.pid} died`);
+  });
+} else {
+  // Workers can share any TCP connection
+  // In this case it is an HTTP server
+  var server = http.createServer(app.callback());
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+
+  console.log(`Worker ${process.pid} started`);
+}
+
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app.callback());
+// var server = http.createServer(app.callback());
 
 /**
  * Create HTTPS server.
@@ -37,9 +62,9 @@ var server = http.createServer(app.callback());
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+// server.listen(port);
+// server.on('error', onError);
+// server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.

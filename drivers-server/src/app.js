@@ -29,7 +29,7 @@ const userModel = require('./models/user.model');
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
-app.use(require('koa-static')(process.cwd() + '/public'));
+app.use(convert(require('koa-static')(process.cwd() + '/public')));
 app.use(views(__dirname + '/views', { extension: 'jade' }));
 
 app.keys = [config.sessionKey];
