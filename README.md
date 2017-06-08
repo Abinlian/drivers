@@ -2,6 +2,12 @@
 A web site about buying ticket for movies.
 
 # usage
-> npm install
-
-> npm start
+``` 
+cd drivers/drivers-server
+```
+``` 
+npm install
+```
+```
+npm start
+```
