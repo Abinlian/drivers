@@ -256,13 +256,40 @@ Dr. Henry Jekyll</span>
 router.get('/:movie_id/cinemas', async function (ctx, next) {
     
   ctx.state = {
-    title: 'Drivers 电影'
+    title: 'Drivers 电影',
+    remarks: [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+    ],
+    locations: [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+    ],
+    cinemas: [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+    ]
   };
 
-  await ctx.render('index', {
+  await ctx.render('cinema-list', {
     page_name: '电影院选择页面'
   });
-  选座页面
 });
 
 router.get('/:movie_id/cinemas/:cinema_id/rooms/:room_id', async function (ctx, next) {
