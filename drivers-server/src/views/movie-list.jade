@@ -7,7 +7,7 @@ doctype html
 html
   // <![endif]
   head
-    title 经典影片 - 猫眼电影 - 一网打尽好电影
+    title drivers 电影
     link(rel='dns-prefetch', href='//p0.meituan.net')
     link(rel='dns-prefetch', href='//p1.meituan.net')
     link(rel='dns-prefetch', href='//ms0.meituan.net')
@@ -16,8 +16,6 @@ html
     link(rel='dns-prefetch', href='//report.meituan.com')
     link(rel='dns-prefetch', href='//frep.meituan.com')
     meta(charset='utf-8')
-    meta(name='keywords', content='广州,正在热映,即将上映,经典电影')
-    meta(name='description', content='猫眼电影致力于打造中国最大最全的电影信息资讯平台,在这里,海量影视资料应有尽有,热点影视讯息一网打尽,更有秒级实时票房,热门榜单,极致地满足您独特的观影口味')
     meta(http-equiv='cleartype', content='yes')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='renderer', content='webkit')
@@ -50,11 +48,11 @@ html
     .subnav
       ul.navbar
         li
-          a(data-act='subnav-click', data-val='{subnavClick:1}', href='?showType=1') 正在热映
+          a.active(data-act='subnav-click', data-val='{subnavClick:1}', href='?showType=1') 正在热映
         li
           a(data-act='subnav-click', data-val='{subnavClick:2}', href='?showType=2') 即将上映
         li
-          a.active(data-act='subnav-click', data-val='{subnavClick:3}', data-state-val='{subnavId:3}', href='javascript:void(0);') 经典影片
+          a(data-act='subnav-click', data-val='{subnavClick:3}', href='?showType=3') 经典影片
     #app.container
       .movies-channel
         .tags-panel
@@ -157,51 +155,20 @@ html
                   a(data-act='tag-click', data-val="{TagName:'伊朗'}", href='?sourceId=21') 伊朗
                 li
                   a(data-act='tag-click', data-val="{TagName:'其他'}", href='?sourceId=100') 其他
-            li.tags-line.tags-line-border(data-val="{tagTypeName:'year'}")
-              .tags-title 年代 :
-              ul.tags
-                li.active(data-state-val="{ yearTagName:'全部'}")
-                  a(data-act='tag-click', data-val="{TagName:'全部'}", href='javascript:void(0);', style='cursor: default') 全部
-                li
-                  a(data-act='tag-click', data-val="{TagName:'2017以后'}", href='?yearId=13') 2017以后
-                li
-                  a(data-act='tag-click', data-val="{TagName:'2017'}", href='?yearId=12') 2017
-                li
-                  a(data-act='tag-click', data-val="{TagName:'2016'}", href='?yearId=11') 2016
-                li
-                  a(data-act='tag-click', data-val="{TagName:'2015'}", href='?yearId=10') 2015
-                li
-                  a(data-act='tag-click', data-val="{TagName:'2014'}", href='?yearId=9') 2014
-                li
-                  a(data-act='tag-click', data-val="{TagName:'2013'}", href='?yearId=8') 2013
-                li
-                  a(data-act='tag-click', data-val="{TagName:'2012'}", href='?yearId=7') 2012
-                li
-                  a(data-act='tag-click', data-val="{TagName:'2011'}", href='?yearId=6') 2011
-                li
-                  a(data-act='tag-click', data-val="{TagName:'2000-2010'}", href='?yearId=5') 2000-2010
-                li
-                  a(data-act='tag-click', data-val="{TagName:'90年代'}", href='?yearId=4') 90年代
-                li
-                  a(data-act='tag-click', data-val="{TagName:'80年代'}", href='?yearId=3') 80年代
-                li
-                  a(data-act='tag-click', data-val="{TagName:'70年代'}", href='?yearId=2') 70年代
-                li
-                  a(data-act='tag-click', data-val="{TagName:'更早'}", href='?yearId=1') 更早
         .movies-panel
           .movies-list
             dl.movie-list
               each movie in movies
                 dd
                   .movie-item
-                    a(href='/films/#{movie.id}', target='_blank', data-act='movie-click', data-val='{movieid:249895}')
+                    a(href='/movies/#{movie.id}', target='_blank', data-act='movie-click', data-val='{movieid:249895}')
                       .movie-poster
                         img.poster-default(src='//ms0.meituan.net/mywww/image/loading_2.e3d934bf.png')
                         img(src='#{movie.img_url}')
                     .movie-ver
                       i.imax3d
                   .channel-detail.movie-item-title(title='#{movie.name}')
-                    a(href='/films/249895', target='_blank', data-act='movies-click', data-val='{movieId:249895}')  #{movie.name}
+                    a(href='/movies/#{movie.id}', target='_blank', data-act='movies-click', data-val='{movieId:249895}')  #{movie.name}
                   .channel-detail.channel-detail-orange  #{movie.rating}
 
 
@@ -209,19 +176,19 @@ html
             ul.list-pager
               li.active
                 a.page_1(href='javascript:void(0);', style='cursor: default') 1
-              li
-                a.page_2(href='?offset=30') 2
-              li
-                a.page_3(href='?offset=60') 3
-              li
-                a.page_4(href='?offset=90') 4
-              li
-                a.page_5(href='?offset=120') 5
-              li.sep ...
-              li
-                a.page_10(href='?offset=270') 10
-              li
-                a.page_2(href='?offset=30') 下一页
+              //- li
+              //-   a.page_2(href='?offset=30') 2
+              //- li
+              //-   a.page_3(href='?offset=60') 3
+              //- li
+              //-   a.page_4(href='?offset=90') 4
+              //- li
+              //-   a.page_5(href='?offset=120') 5
+              //- li.sep ...
+              //- li
+              //-   a.page_10(href='?offset=270') 10
+              //- li
+              //-   a.page_2(href='?offset=30') 下一页
     //if IE 8
       script(src='//ms0.meituan.net/mywww/es5-shim.bbad933f.js')
     //if IE 8
