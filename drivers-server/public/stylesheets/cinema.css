@@ -1,0 +1,19 @@
+#content {
+     float: none; 
+     width: auto; 
+}
+
+/*#bd {
+    width: auto;
+}
+*/
+
+#yui_3_16_0_1_1497013794743_3124 {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+#cinema-action-dialog {
+    display: none;
+}

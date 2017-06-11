@@ -1,0 +1,235 @@
+doctype html
+html#yui_3_16_0_1_1497006844824_255.yui3-js-enabled
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    title #{movie_description.chinese_name}
+    script.
+      var M = {}, _gaq = [], Y, _mbq = function () {
+      (_mbq._q = _mbq._q || []).push(arguments);
+      };
+      (function (P) {"function"!=typeof Date.now&&(Date.now=function(){return(new Date).getTime()}),window.M=window.M||{},M.TimeTracker={start:Date.now(),reqtime:P.ts},M.DELTA_TIME=M.TimeTracker.reqtime-M.TimeTracker.start,M.Env={},M.subresources={names:[]},M.logFirstScreenTime=function(a){M.TimeTracker.fst=Date.now(),a&&a.src&&(M.subresources.names.push(a.src),M.subresources.lastImage=a.src,M.subresources.firstImage||(M.subresources.firstImage=a.src))},M.delayImg=function(a){var b=a.getAttribute("data-src");a.removeAttribute("data-src"),b&&window.setTimeout(function(){a.src=b},200)},M._autoinit=[];}).call(window, {"ts":1497006843000,"action":["movie","moviedetail"]});
+    link(rel='stylesheet', type='text/css', href='//s0.meituan.net/bs/css/?f=fewww:/www/css/common.css,/www/css/base.css,/www/css/search-box.css,/www/css/cate-nav.css@f49bb80')
+    link(rel='stylesheet', type='text/css', href='//s0.meituan.net/bs/css/?f=fewww:/www/css/filter.css,/www/css/movieinfo.css,/www/css/movie.css,/www/css/side.css,/www/css/deallist.css,/www/css/banner-index.css,/www/css/animate.css,/www/css/movie-navtab.css@f49bb80')
+    link#yui_3_16_0_1_1497006844824_6(charset='utf-8', rel='stylesheet', href='//s0.meituan.net/bs/css/?f=require(@mtfe/yui):build/widget-base/assets/skins/sam/widget-base.css@3.16.0;require(@mtfe/yui):build/widget-stack/assets/skins/sam/widget-stack.css@3.16.0;require(@mtfe/yui):build/overlay/assets/skins/sam/overlay.css@3.16.0;require(@mtfe/fe.core):w-simpledialog/assets/skins/sam/w-simpledialog.css@0.2.125')
+    link#yui_3_16_0_1_1497006844824_242(charset='utf-8', rel='stylesheet', href='//s0.meituan.net/bs/css/?f=fewww:www/css/lazyload.css,iconfont/css/global-iconfont.css@f49bb80')
+    link#yui_3_16_0_1_1497006844824_389(charset='utf-8', rel='stylesheet', href='//s0.meituan.net/bs/css/?f=fewww:/www/css/cinema-list.css@f49bb80;fewww:/www/css/downtip.css@f49bb80')
+    link#yui_3_16_0_1_1497006844824_2931(charset='utf-8', rel='stylesheet', href='//s0.meituan.net/bs/css/?f=fewww:/www/css/side-movielist.css@f49bb80')
+
+    //- custom 
+    link(charset='utf-8', rel='stylesheet', href='/stylesheets/cinema.css')
+    script(type='text/javascript', src='/javascripts/cinema-list.js')
+
+  body#biz.pg-movie
+
+    each cinema in cinemas
+      #cinema-action-dialog.cinema-action-dialog.mt-overlay-container
+        #yui_3_16_0_1_1497013794743_3124.yui3-widget.yui3-overlay.yui3-widget-positioned.yui3-widget-stacked(style='width: 750px; left: 13px; top: 143px; z-index: 102;')
+          #yui_3_16_0_1_1497013794743_3126.yui3-overlay-content.yui3-widget-stdmod
+            #yui_3_16_0_1_1497013794743_3219.yui3-widget-bd
+              #yui_3_16_0_1_1497013794743_3218.mt-dialog
+                h3#yui_3_16_0_1_1497013794743_3217.head
+                  | #{cinema.name}
+                  span#dialog-close.dialog-close.close 关闭
+                .body
+                  p.error(style='display:none')  
+                  .cinema-item__seats.cf(data-pid='92813531')
+                    .J-cinema-seats-table.cinema-item__scrollable
+                      table.table
+                        tbody
+                          tr
+                            th 放映时间
+                            th 语言版本
+                            th 放映厅
+                            th 猫眼选座售价
+                            th 在线选座
+                          each show in cinema.shows
+                            tr
+                              td
+                                span.start-time #{show.show_time}
+                                //- |  − 
+                                //- span.end-time 23:16
+                              td #{show.show_language}
+                              td #{show.room_name}
+                              td
+                                .price-wrapper
+                                  strong.price
+                                    //- i.inline-block.ps_12.pngfix(style='background-image: url(//s0.meituan.net/bs/file/?f=fewww:/www/css/si/pricesp/12/e40bae0e4c.png@f49bb80);background-position: -56px 0px;')
+                                    //- i.inline-block.ps_12.pngfix(style='background-image: url(//s0.meituan.net/bs/file/?f=fewww:/www/css/si/pricesp/12/e40bae0e4c.png@f49bb80);background-position: -57px -52px;')
+                                    | #{show.show_price}
+                                    | 元
+                              td
+                                a.btn.btn-small.btn-hot.J-select-seat(href='/movies/#{movie_description.movie_id}/cinemas/#{cinema.id}/rooms/#{show.room_id}', data-pid='92813531', data-mid='249895', data-seq='201706090076687', data-date='16', gaevent='movieinfo/xuanzuo/button/249895/17') 选座购票
+          .mt-overlay-underlay
+
+
+
+    #bdw.bdw
+      #bd.cf
+        #yui_3_16_0_1_1497006844824_3275.movie-container.J-movie-container
+          .movie-container__head
+            .heave
+            .sunken
+              span.star-container.movie-info__rate
+                span.star-content(style='width:98%;')
+              strong.rates
+                | 9
+                strong.rates-point .8
+          .movie-container__body
+            .movie-info.movie-info--rich.cf
+              .movie-info__cover
+                img(src='#{movie_description.img_url}', alt='#{movie_description.chinese_name}', width='166', height='234')
+              .movie-info__name
+                h2 #{movie_description.chinese_name}
+              i.movie-info-version.movie-info-version--2d
+              section.movie-info__body
+                dl.movie-info__list
+                  dt 首映
+                  dd #{movie_description.release_time}
+                  dt 类型
+                  dd #{movie_description.type}
+                  //- dt 版本
+                  //- dd 2D
+                  dt 地区
+                  dd #{movie_description.region}
+                  dt 时长
+                  dd #{movie_description.length}
+                  //- dt 导演
+                  //- dd 尼特什·提瓦瑞
+                  //- dt 主演
+                  //- dd 阿米尔·汗，萨卡诗·泰瓦，法缇玛·萨那·纱卡，桑亚·玛荷塔，Aparshakti Khurana，Zaira Was...
+          //- #yui_3_16_0_1_1497006844824_3274.movie-container__foot
+          //-   h4 剧情
+          //-   p#J-short-movie-desc.desc(hidden='hidden', style='display: none;')
+          //-     | 这是一个温暖幽默的励志故事。马哈维亚 辛格·珀尕（阿米尔汗 饰）曾是印度国家摔跤冠军，因生活所迫放弃摔跤。他希望让儿子可以帮他完成梦想：赢得世界级金牌。结果生了四个女儿。本以为梦想就此破碎的辛格却意外发现女儿身上的惊人天赋，看到冠军希望的他决定不能让女儿的天赋浪费，像其他女孩一样只能洗衣做饭过一生，...
+          //-     a#J-unfold-movie-desc(href='javascript:void(0)', data-mod-mtt='1.movie/moviedetail.0.0.j3pr823i') 展开
+          //-   p#J-long-movie-desc.desc
+          //-     | 这是一个温暖幽默的励志故事。马哈维亚 辛格·珀尕（阿米尔汗 饰）曾是印度国家摔跤冠军，因生活所迫放弃摔跤。他希望让儿子可以帮他完成梦想：赢得世界级金牌。结果生了四个女儿。本以为梦想就此破碎的辛格却意外发现女儿身上的惊人天赋，看到冠军希望的他决定不能让女儿的天赋浪费，像其他女孩一样只能洗衣做饭过一生，再三考虑之后，与妻子约定一年时间按照摔跤手的标准训练两个女儿：换掉裙子 、剪掉了长发，让她们练习摔跤，并赢得一个又一个冠军，最终赢来了成为榜样激励千千万万女性的机会……
+          //-     a#J-fold-movie-desc(href='javascript:void(0)', data-mod-mtt='1.movie/moviedetail.0.0.j3pr823i') 收起
+        #content
+          ul#switch-anchor.J-switcher.nav-tabs--large.cf
+            li#yui_3_16_0_1_1497006844824_3126.J-tab.current(data-name='cinema')
+              a#yui_3_16_0_1_1497006844824_3125(href='javascript:void(0);', data-mod-mtt='1.movie/moviedetail.0.0.j3pr823i') 上映影院
+            li#yui_3_16_0_1_1497006844824_3111.J-tab(data-name='comment')
+              a#yui_3_16_0_1_1497006844824_3110(href='javascript:void(0);', gaevent='diangying/588362/commentHot', data-mod-mtt='1.movie/moviedetail.0.0.j3pr823i')
+                | 热门影评
+                i.icon-new
+          #cinema-info.J-cinema-info.cinema-info(data-uix='tooltip', data-params="{'useAnim': true}")
+            #J-cinema-info-filter.cinema-info__filter
+              #filter
+                #yui_3_16_0_1_1497006844824_3090.filter-sortbar-outer-box
+                  #yui_3_16_0_1_1497006844824_3089.filter-section-wrapper
+                    #yui_3_16_0_1_1497006844824_3098.filter-label-list.filter-section.geo-filter-wrapper
+                      .label.has-icon 区域：
+                      ul#yui_3_16_0_1_1497006844824_3097.inline-block-list
+                        li.item.current
+                          a(href='javascript:void(0)') 全部
+                        each location in locations
+                          li.item
+                            a(href='javascript:void(0)') #{location.name}
+                    #J-brand-filter.filter-label-list.filter-section.brand-filter-wrapper
+                      .label.has-icon 影院：
+                      ul#yui_3_16_0_1_1497006844824_3088.inline-block-list
+                        li.item.current
+                          a(href='http://gz.meituan.com/dianying/588362/2017-06-09/all/all', gaevent='filter/brand/all') 全部
+                        each cinema in cinemas
+                          li.item
+                            a(href='javascript:void(0)') #{cinema.name}
+                        li.item
+                          a(href='javascript:void(0)', gaevent='filter/brand/0') 其它
+            .cinema-info__shadow
+              .arrow--background
+              .arrow--prospect
+            #yui_3_16_0_1_1497006844824_35.component-cinema-list.mt-component--booted(data-component='cinema-list', mt-scope='[]', data-component-params='{"movieId":588362}', data-component-config='{"css":"fewww:\/www\/css\/cinema-list.css@f49bb80"}')
+              #J-cinema-info-list.cinema-info__list
+                each cinema in cinemas
+                  #J-cinema-item-15803.J-cinema-item.cinema-item.cf(data-params='{"id":15803,"nm":"CGV\u661f\u805a\u6c47\u5f71\u57ce(\u6c38\u65fa\u5e97)","addr":"\u756a\u79ba\u533a\u4e9a\u8fd0\u5927\u90531\u53f7\u6c38\u65fa\u68a6\u4e50\u57ce4F"}')
+                    #yui_3_16_0_1_1497006844824_3137.cinema-item__block.cinema-item__block--detail
+                      h4.J-cinema-label.cinema-item__label
+                        a.link--black__green(href='javascript:void(0)', target='_blank') #{cinema.name}
+                        span.common-rating.common-rating--biz.cinema-item__rating
+                          span.rate-stars(style='width:98%')
+                        span.cinema-item__rating-text
+                          strong #{cinema.rating}
+                      dl#yui_3_16_0_1_1497006844824_3136.cinema-info-row.cinema-info-row--addr.cf
+                        dt.cinema-info-row__label 地址：
+                        dd#yui_3_16_0_1_1497006844824_3135.cinema-info-row__value
+                          | #{cinema.address}
+                        dd.cinema-info-row__promotion
+                      dl#yui_3_16_0_1_1497006844824_3139.cinema-info-row.cinema-info-row--plist.cf
+                        dt.cinema-info-row__label 影讯：
+                        dd#yui_3_16_0_1_1497006844824_3138.cinema-info-row__value
+                          each show in cinema.shows
+                            span.showtimes__item #{show.show_time}
+                    //- #yui_3_16_0_1_1497006844824_3133.cinema-item__block.cinema-item__block--feature
+                    //-   p.cinema-feature.cinema-feature__subway.uix-tooltip(title='距3号线番禺广场站约319米<br/>')
+                    //-     i.icon.icon--subway
+                    //-     | 地铁附近
+                    //-   p#yui_3_16_0_1_1497006844824_3134.cinema-feature.cinema-feature__text  
+                    #yui_3_16_0_1_1497006844824_3328.cinema-item__block.cinema-item__block--button
+                      .btn-block.btn-block--buy.cf
+                      #yui_3_16_0_1_1497006844824_3327.btn-block.btn-block--seat.cf
+                        p.btn-block__price
+                          em.btn-block__price__tag.f4
+                            span.tag ¥
+                            | #{cinema.shows.sort(function(show_a, show_b) {return show_a.show_price < show_b.show_price;})[0].show_price}
+                          | 起
+                        a#yui_3_16_0_1_1497006844824_3326.J-select-dialog.btn.btn-hot.btn-small.btn-block--seat__btn(gaevent='movieinfo/xuanzuo/buy/588362/1', href='javascript:void(0)', data-params='{"date":"2017-06-09", "geo":"all", "movieId":"588362", "cinemaId":"15803", "pid":"92813531", "today": "2017-06-09"}') 选座购票
+            .paginator-wrapper
+              ul.paginator.paginator--notri.paginator--large
+                li.current
+                  a 1
+          #yui_3_16_0_1_1497006844824_3115.J-comment-wrapper.comment-wrapper(hidden='hidden', style='display: none;')
+            .comment-list-header.cf
+              span.title 《#{movie_description.chinese_name}》的热门影评
+            .J-comment-list.comment-list
+              each remark in remarks
+                .comment(data-commentid='105091528', data-comment='拍得比较真实，很能体会到电影中爸爸对孩子的希望，孩子在训练过程中经受的困难、嘲笑与质疑，孩子成功以后父母和孩子相视流泪的心情…突然明白了我父母对我的感情，尽管有时我会叛逆，会拒绝他们的好意，但不得不说，父母真的...')
+                  .comment__head.cf
+                    span.user-info qingyichiwenrou
+                    span.time 2017-05-05 02:52
+                    span.rate-wrapper
+                      span.rate.common-rating
+                        span.rate-stars(style='width:100%')
+                    a.J-share.share(href='javascript:void(0)', gaevent='dianying/588362/CommentShareButton')
+                  span.comment__content
+                    | 拍得比较真实，很能体会到电影中爸爸对孩子的希望，孩子在训练过程中经受的困难、嘲笑与质疑，孩子成功以后父母和孩子相视流泪的心情…突然明白了我父母对我的感情，尽管有时我会叛逆，会拒绝他们的好意，但不得不说，父母真的在我们成长中付出了太多太多……电影有笑有泪，很自然，个人觉得值得推荐。
+            .comment-list-footer.cf
+    iframe(src='http://ck.dsp.meituan.com/beacon?adx=tanx', frameborder='0', style='width: 1px; height: 1px; position: absolute; top: 0px; left: -9999px; display: none !important; visibility: hidden !important; opacity: 0 !important;', width='0', height='0')
+    script.
+      M.Env["data-conf"] = {"domainHost":"meituan.com","cdnDomainHost":"meituan.net","rootHost":"www.meituan.com","app":"www","comboBase":"\\/\/s0.meituan.net\/bs\/css\/?f=","yuiVersion":"3.16.0","httpReferer":"http:\/\/maoyan.com\/films\/588362","debug":false,"pageview":"\/index.php","pageviewData":{"page":"movie\/moviedetail"},"asyncPageviewData":[],"gaCustomVar":"","coreCssUrl":"\/\/s0.meituan.net\/bs\/css\/?f=fewww:www\/css\/common.css,www\/css\/base.css,www\/css\/seo.css@f49bb80","moreCssUrl":"\/\/s0.meituan.net\/bs\/css\/?f=fewww:www\/css\/filter.css,www\/css\/movieinfo.css,www\/css\/movie.css,www\/css\/side.css,www\/css\/deallist.css,www\/css\/banner-index.css,www\/css\/animate.css@f49bb80","coreJsUrl":"\/\/s0.meituan.net\/bs\/js\/?f=require(@mtfe\/yui):build\/mt-web-core\/mt-web-core.js@3.16.0;fewww:www\/js\/inline\/conf.js@f49bb80;require(@mtfe\/fe.core):mt-core\/mt-core.js,mt-base\/mt-base.js,mt-uiutil\/mt-uiutil.js,mt-window\/mt-window.js,mt-event\/mt-event.js,mt-event-hover\/mt-event-hover.js,mt-component\/mt-component.js,mt-viewporttracker\/mt-viewporttracker.js,mt-bigrender\/mt-bigrender.js,mt-imageloader\/mt-imageloader.js,mt-ajax\/mt-ajax.js,uix-dropdown\/uix-dropdown.js,p-node-placeholder\/p-node-placeholder.js,p-node-effect\/p-node-effect.js@0.2.125;fewww:www\/js\/base.js,www\/js\/tracker.js,www\/js\/hub.js,www\/component\/search-box\/search-box.js,www\/component\/cate-nav\/cate-nav.js@f49bb80;require(@mtfe\/fe.core):mt-ngparser\/mt-ngparser.js,mt-scope\/mt-scope.js,mt-validator\/mt-validator.js,mt-autoinit\/mt-autoinit.js,mt-bind\/mt-bind.js@0.2.125","jsDepsUrl":"\/\/s0.meituan.net\/bs\/js\/?f=require(@mtfe\/fe.core):deps.js@0.2.125;fewww:www\/deps.js,\/www\/js\/inline\/init.js@f49bb80","ravenUrl":"\/\/s0.meituan.net\/bs\/js\/?f=fewww:vendor\/js\/raven-helper.min.js@f49bb80","ag":"\/\/s0.meituan.net\/bs\/file\/?f=fewww:\/vendor\/js\/ag.js@f49bb80","DEV":0,"nodelogin":false,"repoHash":{"yui":"3.16.0","fecore":"0.2.125","fewww":"f49bb80"},"useBS":true,"BSTypeJs":"js","BSTypeCss":"css","BSName":"fewww"};
+    script(src='//s0.meituan.net/bs/js/?f=require(@mtfe/yui):build/mt-web-core/mt-web-core.js@3.16.0;fewww:www/js/inline/conf.js@f49bb80;require(@mtfe/fe.core):mt-core/mt-core.js,mt-base/mt-base.js,mt-uiutil/mt-uiutil.js,mt-window/mt-window.js,mt-event/mt-event.js,mt-event-hover/mt-event-hover.js,mt-component/mt-component.js,mt-viewporttracker/mt-viewporttracker.js,mt-bigrender/mt-bigrender.js,mt-imageloader/mt-imageloader.js,mt-ajax/mt-ajax.js,uix-dropdown/uix-dropdown.js,p-node-placeholder/p-node-placeholder.js,p-node-effect/p-node-effect.js@0.2.125;fewww:www/js/base.js,www/js/tracker.js,www/js/hub.js,www/component/search-box/search-box.js,www/component/cate-nav/cate-nav.js@f49bb80;require(@mtfe/fe.core):mt-ngparser/mt-ngparser.js,mt-scope/mt-scope.js,mt-validator/mt-validator.js,mt-autoinit/mt-autoinit.js,mt-bind/mt-bind.js@0.2.125')
+    #yui3-css-stamp(style='position: absolute !important; visibility: hidden !important')
+    script(src='//s0.meituan.net/bs/js/?f=require(@mtfe/fe.core):deps.js@0.2.125;fewww:www/deps.js,/www/js/inline/init.js@f49bb80')
+    //- script(src='//analytics.meituan.net/analytics.js')
+    iframe(src='http://ck.dsp.meituan.com/beacon?adx=tanx', frameborder='0', style='width: 1px; height: 1px; position: absolute; top: 0px; left: -9999px; display: none !important; visibility: hidden !important; opacity: 0 !important;', width='0', height='0')
+    #yui_3_16_0_1_1497006844824_37.component-downtip.mt-component--booted(data-component='downtip', mt-scope='[]', data-component-config='{"css":"fewww:\/www\/css\/downtip.css@f49bb80"}')
+      #yui_3_16_0_1_1497006844824_3104.closetip
+        .bg-color
+        #yui_3_16_0_1_1497006844824_3103.tip
+          .mid
+            .text
+              h3 猫眼电影（美团旗下）
+              span 特惠选座，热门影讯，爱上看电影
+            .imgcat
+              .erwei
+                a(href='http://maoyan.com', target='_blank')
+                p "扫描下载"
+            .download(data-mtevent='{"la":"downtip\/link"}')
+              a(href='http://maoyan.com', target='_blank') 立即下载
+          #yui_3_16_0_1_1497006844824_3102.close(data-mtevent='{"la":"downtip\/close"}')
+            span#yui_3_16_0_1_1497006844824_3101.close-it
+    script(type='text/javascript').
+      Y.use('www-movie', function(Y) {
+      $MOVIE = Y.mt.www.Movie;
+      $MOVIE.initMovieDesc("", "aHR0cDovL3d3dy5tZWl0dWFuLmNvbS9kaWFueWluZy81ODgzNjIuaHRtbA", "588362");
+      $MOVIE.initToggleSwitcher('588362', '摔跤吧！爸爸');
+      });
+      M.load(function () {
+      Y.use('www-movie', function(Y) {
+      var $Www = Y.mt.www,
+      $MOVIE = $Www.Movie,
+      movieID = '588362';
+      $MOVIE.asyncLoadSideMovie('hot', 5, 'moviedetail', movieID);
+      $Www.storeScrollInfo('#J-cinema-info-filter');
+      });
+      });

@@ -1,97 +1,14 @@
 const router = require('koa-router')();
 
+const movieModel = require('../models/movie.model');
+
 router.get('/', async function (ctx, next) {
   
-  // database query
-  // ctx.state = database query
-  ctx.state = {
-      movies: [
-          {
-            id: 1,
-            status: 'xc',
-            name: 'name1',
-            img_url: 'http://p0.meituan.net/movie/aeb864fa21d578d845b9cefc056e40cb2874891.jpg@160w_220h_1e_1c',
-            rating: 8.1
-          },
-          {
-            id: 2,
-            status: 'xc',
-            name: 'name2',
-            img_url: 'http://p0.meituan.net/movie/fbe5f97c016c9f4520109dc70f458d4d83363.jpg@160w_220h_1e_1c',
-            rating: 8.9
-          },
-          {
-            id: 1,
-            status: 'xc',
-            name: 'name1',
-            img_url: 'http://p0.meituan.net/movie/aeb864fa21d578d845b9cefc056e40cb2874891.jpg@160w_220h_1e_1c',
-            rating: 8.1
-          },
-          {
-            id: 2,
-            status: 'xc',
-            name: 'name2',
-            img_url: 'http://p0.meituan.net/movie/fbe5f97c016c9f4520109dc70f458d4d83363.jpg@160w_220h_1e_1c',
-            rating: 8.9
-          },
-          {
-            id: 1,
-            status: 'xc',
-            name: 'name1',
-            img_url: 'http://p0.meituan.net/movie/aeb864fa21d578d845b9cefc056e40cb2874891.jpg@160w_220h_1e_1c',
-            rating: 8.1
-          },
-          {
-            id: 2,
-            status: 'xc',
-            name: 'name2',
-            img_url: 'http://p0.meituan.net/movie/fbe5f97c016c9f4520109dc70f458d4d83363.jpg@160w_220h_1e_1c',
-            rating: 8.9
-          },
-          {
-            id: 1,
-            status: 'xc',
-            name: 'name1',
-            img_url: 'http://p0.meituan.net/movie/aeb864fa21d578d845b9cefc056e40cb2874891.jpg@160w_220h_1e_1c',
-            rating: 8.1
-          },
-          {
-            id: 2,
-            status: 'xc',
-            name: 'name2',
-            img_url: 'http://p0.meituan.net/movie/fbe5f97c016c9f4520109dc70f458d4d83363.jpg@160w_220h_1e_1c',
-            rating: 8.9
-          },
-          {
-            id: 1,
-            status: 'xc',
-            name: 'name1',
-            img_url: 'http://p0.meituan.net/movie/aeb864fa21d578d845b9cefc056e40cb2874891.jpg@160w_220h_1e_1c',
-            rating: 8.1
-          },
-          {
-            id: 2,
-            status: 'xc',
-            name: 'name2',
-            img_url: 'http://p0.meituan.net/movie/fbe5f97c016c9f4520109dc70f458d4d83363.jpg@160w_220h_1e_1c',
-            rating: 8.9
-          },
-          {
-            id: 1,
-            status: 'xc',
-            name: 'name1',
-            img_url: 'http://p0.meituan.net/movie/aeb864fa21d578d845b9cefc056e40cb2874891.jpg@160w_220h_1e_1c',
-            rating: 8.1
-          },
-          {
-            id: 2,
-            status: 'xc',
-            name: 'name2',
-            img_url: 'http://p0.meituan.net/movie/fbe5f97c016c9f4520109dc70f458d4d83363.jpg@160w_220h_1e_1c',
-            rating: 8.9
-          }
+  let movies = await movieModel.findAllMovies();
+  // console.log(movies);
 
-      ]
+  ctx.state = {
+      movies
   };
 
   await ctx.render('movie-list');
@@ -100,6 +17,7 @@ router.get('/', async function (ctx, next) {
 
 router.get('/:movie_id', async function (ctx, next) {
 
+<<<<<<< HEAD
  
   ctx.state = {
       movie_description: {
@@ -184,85 +102,48 @@ Nick Morton</span>
 Jenny Halsey</span>
 </div>
 </li>
+=======
+  let movie_id = ctx.params.movie_id;
+>>>>>>> 0034e1885e9f31c38ea4301b2c6dd7c667e5ca87
 
-<li class="celebrity actor" data-act="celebrity-click" data-val="{celebrityid:28312}">
-<a href="/films/celebrity/28312" target="_blank" class="portrait">
-<img class="default-img" alt="" src="http://p0.meituan.net/movie/3a0e1b194b26fdcc7c20def9c9ada32739348.jpg@128w_170h_1e_1c">
-</a>
-<div class="info">
-<a href="/films/celebrity/28312" target="_blank" class="name">
-罗素·克劳
-</a>
-<br><span class="role">饰：亨利博士
-Dr. Henry Jekyll</span>
-</div>
-</li>
+  let movie_description = await movieModel.findOneMovieDescriptionByMovieId(movie_id);
+  movie_description = movie_description[0];
+  // console.log(movie_description);
 
-<li class="celebrity actor" data-act="celebrity-click" data-val="{celebrityid:12171}">
-<a href="/films/celebrity/12171" target="_blank" class="portrait">
-<img class="default-img" alt="" src="http://p0.meituan.net/movie/3115d8e43d05f837e081af4caf51bee260931.jpg@128w_170h_1e_1c">
-</a>
-<div class="info">
-<a href="/films/celebrity/12171" target="_blank" class="name">
-索菲亚·波多拉
-</a>
-<br><span class="role">饰：公主阿玛内特</span>
-</div>
-</li>
-
-</ul>
-</div>
-
-</div>
-
-</div>
-</div>
-        `,
-        pictures:`
-<div class="module">
-<div class="mod-title">
-<h3>图集</h3>
-<a class="more" href="#img" data-act="all-photo-click">全部</a>
-</div>
-<div class="mod-content">
-<div class="album clearfix" data-act="movie-img-click">
-<div class="img1"><img class="default-img" alt="" src="http://p0.meituan.net/movie/53ddba218421f5d1d72286ce9b19d01285084.jpg@465w_258h_1e_1c"></div>
-<div class="img2"><img class="default-img" alt="" src="http://p0.meituan.net/movie/c6913b9adb0f871d47b5e820a339b1c791344.jpg@126w_126h_1e_1c"></div>
-<div class="img3"><img class="default-img" alt="" src="http://p0.meituan.net/movie/dd96523bead593c70f76611cfd877f75146147.jpg@126w_126h_1e_1c"></div>
-<div class="img4"><img class="default-img" alt="" src="http://p1.meituan.net/movie/e30dacb8fa6194b863eb5108d44dab12131619.jpg@126w_126h_1e_1c"></div>
-<div class="img5"><img class="default-img" alt="" src="http://p0.meituan.net/movie/1cb134f73d2a970e12d523741dc3779d141373.jpg@126w_126h_1e_1c"></div>
-</div>
-
-</div>
-</div>
-        `
-      },
-      movie_remarks:[
-        {
-            id:2,
-            user_id:4,
-            movie_id:3,
-            comment:'好看',
-            rating:'5',
-            time:'2017-05-03',
-            praise:19
-        } 
-      ]
+  ctx.state = {
+      movie_description,
+      movie_remarks:[]
   };
   
    await ctx.render('movie-detail');
+
 });
 
 router.get('/:movie_id/cinemas', async function (ctx, next) {
     
+  let movie_id = ctx.params.movie_id;
+
+  let cinemas = await movieModel.findAllCinemasByMovieId(movie_id);
+  let locations = await movieModel.findAllLocations();
+  let movie_description = await movieModel.findOneMovieDescriptionByMovieId(movie_id);
+  movie_description = movie_description[0];
+  for (let cinema of cinemas) {
+    cinema.shows = await movieModel.findAllShowsByCinemaId(cinema.id)
+  }
+  // console.log(cinemas);
+  // console.log(cinemas[0].shows);
+
   ctx.state = {
-    title: 'Drivers 电影'
+    title: 'Drivers 电影',
+    movie_description,
+    locations,
+    cinemas,
+    remarks: []
   };
 
-  await ctx.render('index', {
+  await ctx.render('cinema-list', {
     page_name: '电影院选择页面'
   });
-  选座页面
 });
 
 router.get('/:movie_id/cinemas/:cinema_id/rooms/:room_id', async function (ctx, next) {
