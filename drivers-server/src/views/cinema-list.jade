@@ -2,7 +2,7 @@ doctype html
 html#yui_3_16_0_1_1497006844824_255.yui3-js-enabled
   head
     meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
-    title #{movie.chinese_name}
+    title #{movie_description.chinese_name}
     script.
       var M = {}, _gaq = [], Y, _mbq = function () {
       (_mbq._q = _mbq._q || []).push(arguments);
@@ -75,34 +75,34 @@ html#yui_3_16_0_1_1497006844824_255.yui3-js-enabled
           .movie-container__body
             .movie-info.movie-info--rich.cf
               .movie-info__cover
-                img(src='http://p0.meituan.net/166.234/movie/aeb864fa21d578d845b9cefc056e40cb2874891.jpg', alt='摔跤吧！爸爸', width='166', height='234')
+                img(src='#{movie_description.img_url}', alt='#{movie_description.chinese_name}', width='166', height='234')
               .movie-info__name
-                h2 摔跤吧！爸爸
+                h2 #{movie_description.chinese_name}
               i.movie-info-version.movie-info-version--2d
               section.movie-info__body
                 dl.movie-info__list
                   dt 首映
-                  dd 2017-05-05
+                  dd #{movie_description.release_time}
                   dt 类型
-                  dd 喜剧,动作,家庭
-                  dt 版本
-                  dd 2D
+                  dd #{movie_description.type}
+                  //- dt 版本
+                  //- dd 2D
                   dt 地区
-                  dd 印度
+                  dd #{movie_description.region}
                   dt 时长
-                  dd 140分钟
-                  dt 导演
-                  dd 尼特什·提瓦瑞
-                  dt 主演
-                  dd 阿米尔·汗，萨卡诗·泰瓦，法缇玛·萨那·纱卡，桑亚·玛荷塔，Aparshakti Khurana，Zaira Was...
-          #yui_3_16_0_1_1497006844824_3274.movie-container__foot
-            h4 剧情
-            p#J-short-movie-desc.desc(hidden='hidden', style='display: none;')
-              | 这是一个温暖幽默的励志故事。马哈维亚 辛格·珀尕（阿米尔汗 饰）曾是印度国家摔跤冠军，因生活所迫放弃摔跤。他希望让儿子可以帮他完成梦想：赢得世界级金牌。结果生了四个女儿。本以为梦想就此破碎的辛格却意外发现女儿身上的惊人天赋，看到冠军希望的他决定不能让女儿的天赋浪费，像其他女孩一样只能洗衣做饭过一生，...
-              a#J-unfold-movie-desc(href='javascript:void(0)', data-mod-mtt='1.movie/moviedetail.0.0.j3pr823i') 展开
-            p#J-long-movie-desc.desc
-              | 这是一个温暖幽默的励志故事。马哈维亚 辛格·珀尕（阿米尔汗 饰）曾是印度国家摔跤冠军，因生活所迫放弃摔跤。他希望让儿子可以帮他完成梦想：赢得世界级金牌。结果生了四个女儿。本以为梦想就此破碎的辛格却意外发现女儿身上的惊人天赋，看到冠军希望的他决定不能让女儿的天赋浪费，像其他女孩一样只能洗衣做饭过一生，再三考虑之后，与妻子约定一年时间按照摔跤手的标准训练两个女儿：换掉裙子 、剪掉了长发，让她们练习摔跤，并赢得一个又一个冠军，最终赢来了成为榜样激励千千万万女性的机会……
-              a#J-fold-movie-desc(href='javascript:void(0)', data-mod-mtt='1.movie/moviedetail.0.0.j3pr823i') 收起
+                  dd #{movie_description.length}
+                  //- dt 导演
+                  //- dd 尼特什·提瓦瑞
+                  //- dt 主演
+                  //- dd 阿米尔·汗，萨卡诗·泰瓦，法缇玛·萨那·纱卡，桑亚·玛荷塔，Aparshakti Khurana，Zaira Was...
+          //- #yui_3_16_0_1_1497006844824_3274.movie-container__foot
+          //-   h4 剧情
+          //-   p#J-short-movie-desc.desc(hidden='hidden', style='display: none;')
+          //-     | 这是一个温暖幽默的励志故事。马哈维亚 辛格·珀尕（阿米尔汗 饰）曾是印度国家摔跤冠军，因生活所迫放弃摔跤。他希望让儿子可以帮他完成梦想：赢得世界级金牌。结果生了四个女儿。本以为梦想就此破碎的辛格却意外发现女儿身上的惊人天赋，看到冠军希望的他决定不能让女儿的天赋浪费，像其他女孩一样只能洗衣做饭过一生，...
+          //-     a#J-unfold-movie-desc(href='javascript:void(0)', data-mod-mtt='1.movie/moviedetail.0.0.j3pr823i') 展开
+          //-   p#J-long-movie-desc.desc
+          //-     | 这是一个温暖幽默的励志故事。马哈维亚 辛格·珀尕（阿米尔汗 饰）曾是印度国家摔跤冠军，因生活所迫放弃摔跤。他希望让儿子可以帮他完成梦想：赢得世界级金牌。结果生了四个女儿。本以为梦想就此破碎的辛格却意外发现女儿身上的惊人天赋，看到冠军希望的他决定不能让女儿的天赋浪费，像其他女孩一样只能洗衣做饭过一生，再三考虑之后，与妻子约定一年时间按照摔跤手的标准训练两个女儿：换掉裙子 、剪掉了长发，让她们练习摔跤，并赢得一个又一个冠军，最终赢来了成为榜样激励千千万万女性的机会……
+          //-     a#J-fold-movie-desc(href='javascript:void(0)', data-mod-mtt='1.movie/moviedetail.0.0.j3pr823i') 收起
         #content
           ul#switch-anchor.J-switcher.nav-tabs--large.cf
             li#yui_3_16_0_1_1497006844824_3126.J-tab.current(data-name='cinema')
@@ -123,7 +123,7 @@ html#yui_3_16_0_1_1497006844824_255.yui3-js-enabled
                           a(href='javascript:void(0)') 全部
                         each location in locations
                           li.item
-                            a(href='javascript:void(0)') 地铁附近
+                            a(href='javascript:void(0)') #{location.name}
                     #J-brand-filter.filter-label-list.filter-section.brand-filter-wrapper
                       .label.has-icon 影院：
                       ul#yui_3_16_0_1_1497006844824_3088.inline-block-list
@@ -131,7 +131,7 @@ html#yui_3_16_0_1_1497006844824_255.yui3-js-enabled
                           a(href='http://gz.meituan.com/dianying/588362/2017-06-09/all/all', gaevent='filter/brand/all') 全部
                         each cinema in cinemas
                           li.item
-                            a(href='javascript:void(0)') CGV影城
+                            a(href='javascript:void(0)') #{cinema.name}
                         li.item
                           a(href='javascript:void(0)', gaevent='filter/brand/0') 其它
             .cinema-info__shadow
@@ -143,33 +143,33 @@ html#yui_3_16_0_1_1497006844824_255.yui3-js-enabled
                   #J-cinema-item-15803.J-cinema-item.cinema-item.cf(data-params='{"id":15803,"nm":"CGV\u661f\u805a\u6c47\u5f71\u57ce(\u6c38\u65fa\u5e97)","addr":"\u756a\u79ba\u533a\u4e9a\u8fd0\u5927\u90531\u53f7\u6c38\u65fa\u68a6\u4e50\u57ce4F"}')
                     #yui_3_16_0_1_1497006844824_3137.cinema-item__block.cinema-item__block--detail
                       h4.J-cinema-label.cinema-item__label
-                        a.link--black__green(href='javascript:void(0)', target='_blank') CGV星聚汇影城(永旺店)
+                        a.link--black__green(href='javascript:void(0)', target='_blank') #{cinema.name}
                         span.common-rating.common-rating--biz.cinema-item__rating
                           span.rate-stars(style='width:98%')
                         span.cinema-item__rating-text
-                          strong 4.9
+                          strong #{cinema.rating}
                       dl#yui_3_16_0_1_1497006844824_3136.cinema-info-row.cinema-info-row--addr.cf
                         dt.cinema-info-row__label 地址：
                         dd#yui_3_16_0_1_1497006844824_3135.cinema-info-row__value
-                          | 番禺区亚运大道1号永旺梦乐城4F
+                          | #{cinema.address}
                         dd.cinema-info-row__promotion
                       dl#yui_3_16_0_1_1497006844824_3139.cinema-info-row.cinema-info-row--plist.cf
                         dt.cinema-info-row__label 影讯：
                         dd#yui_3_16_0_1_1497006844824_3138.cinema-info-row__value
-                          span.showtimes__item 21:40
-                    #yui_3_16_0_1_1497006844824_3133.cinema-item__block.cinema-item__block--feature
-                      p.cinema-feature.cinema-feature__subway.uix-tooltip(title='距3号线番禺广场站约319米<br/>')
-                        i.icon.icon--subway
-                        | 地铁附近
-                      p#yui_3_16_0_1_1497006844824_3134.cinema-feature.cinema-feature__text  
+                          each show in cinema.shows
+                            span.showtimes__item #{show.show_time}
+                    //- #yui_3_16_0_1_1497006844824_3133.cinema-item__block.cinema-item__block--feature
+                    //-   p.cinema-feature.cinema-feature__subway.uix-tooltip(title='距3号线番禺广场站约319米<br/>')
+                    //-     i.icon.icon--subway
+                    //-     | 地铁附近
+                    //-   p#yui_3_16_0_1_1497006844824_3134.cinema-feature.cinema-feature__text  
                     #yui_3_16_0_1_1497006844824_3328.cinema-item__block.cinema-item__block--button
                       .btn-block.btn-block--buy.cf
                       #yui_3_16_0_1_1497006844824_3327.btn-block.btn-block--seat.cf
                         p.btn-block__price
                           em.btn-block__price__tag.f4
                             span.tag ¥
-                            i.inline-block.ps_16.pngfix(style='background-image: url(//s0.meituan.net/bs/file/?f=fewww:/www/css/si/pricesp/16/e03af0a355.png@f49bb80);background-position: -50px -16px;')
-                            i.inline-block.ps_16.pngfix(style='background-image: url(//s0.meituan.net/bs/file/?f=fewww:/www/css/si/pricesp/16/e03af0a355.png@f49bb80);background-position: -85px -16px;')
+                            | #{cinema.shows.sort(function(show_a, show_b) {return show_a.show_price < show_b.show_price;})[0].show_price}
                           | 起
                         a#yui_3_16_0_1_1497006844824_3326.J-select-dialog.btn.btn-hot.btn-small.btn-block--seat__btn(gaevent='movieinfo/xuanzuo/buy/588362/1', href='javascript:void(0)', data-params='{"date":"2017-06-09", "geo":"all", "movieId":"588362", "cinemaId":"15803", "pid":"92813531", "today": "2017-06-09"}') 选座购票
             .paginator-wrapper

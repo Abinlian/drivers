@@ -13,7 +13,7 @@ module.exports = {
   userSalt: 'drivers-sault',
   sessionKey: 'drivers-session-key',
   db: {
-    host: 'hyumee.me',
+    host: '118.89.35.14',
     port: 3306,
     database: 'driversdb',
     user: 'drivers',
