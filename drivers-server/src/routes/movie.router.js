@@ -4,9 +4,8 @@ const movieModel = require('../models/movie.model');
 
 router.get('/', async function (ctx, next) {
   
-  // database query
   let movies = await movieModel.findAllMovies();
-  console.log(movies);
+  // console.log(movies);
 
   ctx.state = {
       movies
@@ -22,7 +21,7 @@ router.get('/:movie_id', async function (ctx, next) {
 
   let movie_description = await movieModel.findOneMovieDescriptionByMovieId(movie_id);
   movie_description = movie_description[0];
-  console.log(movie_description);
+  // console.log(movie_description);
 
   ctx.state = {
       movie_description,
@@ -44,20 +43,15 @@ router.get('/:movie_id/cinemas', async function (ctx, next) {
   for (let cinema of cinemas) {
     cinema.shows = await movieModel.findAllShowsByCinemaId(cinema.id)
   }
-  console.log(cinemas);
-  console.log(cinemas[0].shows);
+  // console.log(cinemas);
+  // console.log(cinemas[0].shows);
 
   ctx.state = {
     title: 'Drivers 电影',
     movie_description,
-    remarks: [],
     locations,
     cinemas,
-    rooms: [
-    {},
-    {},
-    {}
-    ]
+    remarks: []
   };
 
   await ctx.render('cinema-list', {

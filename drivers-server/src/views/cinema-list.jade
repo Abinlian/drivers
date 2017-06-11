@@ -21,43 +21,45 @@ html#yui_3_16_0_1_1497006844824_255.yui3-js-enabled
 
   body#biz.pg-movie
 
-    #cinema-action-dialog.mt-overlay-container
-      #yui_3_16_0_1_1497013794743_3124.yui3-widget.yui3-overlay.yui3-widget-positioned.yui3-widget-stacked(style='width: 750px; left: 13px; top: 143px; z-index: 102;')
-        #yui_3_16_0_1_1497013794743_3126.yui3-overlay-content.yui3-widget-stdmod
-          #yui_3_16_0_1_1497013794743_3219.yui3-widget-bd
-            #yui_3_16_0_1_1497013794743_3218.mt-dialog
-              h3#yui_3_16_0_1_1497013794743_3217.head
-                | CGV星聚汇影城(永旺店)
-                span#dialog-close.close 关闭
-              .body
-                p.error(style='display:none')  
-                .cinema-item__seats.cf(data-pid='92813531')
-                  .J-cinema-seats-table.cinema-item__scrollable
-                    table.table
-                      tbody
-                        tr
-                          th 放映时间
-                          th 语言版本
-                          th 放映厅
-                          th 猫眼选座售价
-                          th 在线选座
-                        each room in rooms
+    each cinema in cinemas
+      #cinema-action-dialog.cinema-action-dialog.mt-overlay-container
+        #yui_3_16_0_1_1497013794743_3124.yui3-widget.yui3-overlay.yui3-widget-positioned.yui3-widget-stacked(style='width: 750px; left: 13px; top: 143px; z-index: 102;')
+          #yui_3_16_0_1_1497013794743_3126.yui3-overlay-content.yui3-widget-stdmod
+            #yui_3_16_0_1_1497013794743_3219.yui3-widget-bd
+              #yui_3_16_0_1_1497013794743_3218.mt-dialog
+                h3#yui_3_16_0_1_1497013794743_3217.head
+                  | #{cinema.name}
+                  span#dialog-close.dialog-close.close 关闭
+                .body
+                  p.error(style='display:none')  
+                  .cinema-item__seats.cf(data-pid='92813531')
+                    .J-cinema-seats-table.cinema-item__scrollable
+                      table.table
+                        tbody
                           tr
-                            td
-                              span.start-time 21:30
-                              |  − 
-                              span.end-time 23:16
-                            td 英语3D
-                            td 5厅
-                            td
-                              .price-wrapper
-                                strong.price
-                                  i.inline-block.ps_12.pngfix(style='background-image: url(//s0.meituan.net/bs/file/?f=fewww:/www/css/si/pricesp/12/e40bae0e4c.png@f49bb80);background-position: -56px 0px;')
-                                  i.inline-block.ps_12.pngfix(style='background-image: url(//s0.meituan.net/bs/file/?f=fewww:/www/css/si/pricesp/12/e40bae0e4c.png@f49bb80);background-position: -57px -52px;')
-                                  | 元
-                            td
-                              a.btn.btn-small.btn-hot.J-select-seat(href='javascript:void(0);', data-pid='92813531', data-mid='249895', data-seq='201706090076687', data-date='16', gaevent='movieinfo/xuanzuo/button/249895/17') 选座购票
-        .mt-overlay-underlay
+                            th 放映时间
+                            th 语言版本
+                            th 放映厅
+                            th 猫眼选座售价
+                            th 在线选座
+                          each show in cinema.shows
+                            tr
+                              td
+                                span.start-time #{show.show_time}
+                                //- |  − 
+                                //- span.end-time 23:16
+                              td #{show.show_language}
+                              td #{show.room_name}
+                              td
+                                .price-wrapper
+                                  strong.price
+                                    //- i.inline-block.ps_12.pngfix(style='background-image: url(//s0.meituan.net/bs/file/?f=fewww:/www/css/si/pricesp/12/e40bae0e4c.png@f49bb80);background-position: -56px 0px;')
+                                    //- i.inline-block.ps_12.pngfix(style='background-image: url(//s0.meituan.net/bs/file/?f=fewww:/www/css/si/pricesp/12/e40bae0e4c.png@f49bb80);background-position: -57px -52px;')
+                                    | #{show.show_price}
+                                    | 元
+                              td
+                                a.btn.btn-small.btn-hot.J-select-seat(href='/movies/#{movie_description.movie_id}/cinemas/#{cinema.id}/rooms/#{show.room_id}', data-pid='92813531', data-mid='249895', data-seq='201706090076687', data-date='16', gaevent='movieinfo/xuanzuo/button/249895/17') 选座购票
+          .mt-overlay-underlay
 
 
 
@@ -178,7 +180,7 @@ html#yui_3_16_0_1_1497006844824_255.yui3-js-enabled
                   a 1
           #yui_3_16_0_1_1497006844824_3115.J-comment-wrapper.comment-wrapper(hidden='hidden', style='display: none;')
             .comment-list-header.cf
-              span.title 《摔跤吧！爸爸》的热门影评
+              span.title 《#{movie_description.chinese_name}》的热门影评
             .J-comment-list.comment-list
               each remark in remarks
                 .comment(data-commentid='105091528', data-comment='拍得比较真实，很能体会到电影中爸爸对孩子的希望，孩子在训练过程中经受的困难、嘲笑与质疑，孩子成功以后父母和孩子相视流泪的心情…突然明白了我父母对我的感情，尽管有时我会叛逆，会拒绝他们的好意，但不得不说，父母真的...')

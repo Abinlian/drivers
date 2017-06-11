@@ -1,14 +1,17 @@
 window.onload = function () {
-    var dialog = document.getElementById('cinema-action-dialog');
-    var close = document.getElementById('dialog-close');
     var choses = document.getElementsByClassName('btn-block--seat__btn');
+    var dialogs = document.getElementsByClassName('cinema-action-dialog');
+    var closes = document.getElementsByClassName('dialog-close');
 
-    close.onclick = function() {
-        dialog.style.display = 'none';
-    }
-    Array.prototype.forEach.call(choses, function(item) {
+    Array.prototype.forEach.call(choses, function(item, index) {
             item.onclick = function() {
-                dialog.style.display = 'block';
+                dialogs[index].style.display = 'block';
+            }
+        }
+    );
+    Array.prototype.forEach.call(closes, function(item, index) {
+            item.onclick = function() {
+                dialogs[index].style.display = 'none';
             }
         }
     );
