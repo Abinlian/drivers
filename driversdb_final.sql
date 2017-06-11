@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50555
 File Encoding         : 65001
 
-Date: 2017-06-11 09:52:00
+Date: 2017-06-11 23:29:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -50,7 +50,7 @@ CREATE TABLE `movie` (
 `id`  int(11) NOT NULL ,
 `status`  enum('toshow','showing') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL ,
 `name`  varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
-`img_url`  varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`img_url`  varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
 `rating`  varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
 PRIMARY KEY (`id`)
 )
@@ -66,17 +66,17 @@ CREATE TABLE `movie_desciption` (
 `movie_id`  int(11) NULL DEFAULT NULL ,
 `chinese_name`  varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
 `english_name`  varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
-`img_url`  varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`img_url`  varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
 `type`  varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
 `region`  varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
 `length`  varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
 `release_time`  varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
 `user_rating`  decimal(2,1) NULL DEFAULT NULL ,
 `professional_rating`  decimal(2,1) NULL DEFAULT NULL ,
-`box_office`  decimal(9,2) NULL DEFAULT NULL ,
-`profile`  text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL ,
-`actors`  text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL ,
-`pictures`  text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL ,
+`box_office`  decimal(15,2) NULL DEFAULT NULL ,
+`profile`  text CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`actors`  text CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+`pictures`  text CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
 PRIMARY KEY (`id`),
 FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 )
@@ -261,5 +261,5 @@ CREATE INDEX `ref12` ON `seat`(`room_id`) USING BTREE ;
 -- ----------------------------
 -- Indexes structure for table `show`
 -- ----------------------------
-CREATE INDEX `ref8` ON `show`(`movie_id`) USING BTREE ;
 CREATE INDEX `ref9` ON `show`(`room_id`) USING BTREE ;
+CREATE INDEX `ref8` ON `show`(`movie_id`) USING BTREE ;
