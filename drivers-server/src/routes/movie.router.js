@@ -105,7 +105,7 @@ router.get('/:movie_id', async function (ctx, next) {
       movie_description: {
         id:2,
         movie_id:3,
-        chinese_name:'木来意',
+        chinese_name:'木乃伊',
         english_name:'the munny',
         img_url: 'http://p1.meituan.net/movie/4185bf22758d232e15c5bf52f89a7553867763.png@464w_644h_1e_1c',
         type:'动作，冒险，奇幻',
