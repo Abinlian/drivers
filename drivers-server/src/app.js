@@ -23,6 +23,8 @@ const index = require('./routes/index.router');
 
 const user = require('./api/routes/user.router');
 
+const payment = require('./api/routes/payment.router');
+
 const userModel = require('./models/user.model');
 
 // middlewares
@@ -48,6 +50,8 @@ setLogoutRouter(router);
 router.use('/', index.routes(), index.allowedMethods());
 
 router.use('/api/users', user.routes(), user.allowedMethods());
+
+router.use('/api/payment', payment.routes(), payment.allowedMethods());
 
 router.redirect('/', '/login');
 
