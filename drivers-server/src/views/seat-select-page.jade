@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title 选择座位
+    link(rel="stylesheet" media="all" href="/stylesheets/seat.css")
+    script(type="text/javascript" src="/javascripts/seat.js")
+
+  body
+    div(class="seat-tip")
+      span(class="seat-tip-wrapper")
+        img(class="seat active" src="/img/seat.png")
+        span(class="seat-tip-text") 可选座位
+      span(class="seat-tip-wrapper")
+        img(class="seat disabled" src="/img/seat.png")
+        span(class="seat-tip-text") 已售座位
+      span(class="seat-tip-wrapper")
+        img(class="seat buy" src="/img/seat.png")
+        span(class="seat-tip-text") 己购座位
+      span(class="seat-tip-wrapper")
+        img(class="seat selected" src="/img/seat.png")
+        span(class="seat-tip-text") 已选座位
+
+    div(class="seats")
+      div(class="screen-text") 银幕
+      - var length = seats.length;
+      - var row = seats[length-1].row_;
+      - var col= seats[length-1].column_;
+      div(id="seat-detail" self_seats="#{self_seats}" others_seats="#{others_seats}" row="#{row}" col="#{col}")
+        div(id="direction-right")
+        div(id="direction-down")
+        - for(i=1; i<=row; i++)
+          div(class="seat-row")
+            - for(j=1; j<=row; j++)
+              a(class="seat-link")
+                img(class="seat active" title="第#{i}排 第#{j}列" row="#{i}" col="#{j}" src="/img/seat.png")
+
+    div(class="seat-submit-container")
+      button(class="seat-submit" type="button" id="seat-reset" name="seat-reset") 重置 ⟳
+      button(class="seat-submit" type="button" id="seat-buy" name="seat-buy") 购买 ¥
