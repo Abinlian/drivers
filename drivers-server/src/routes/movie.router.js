@@ -71,4 +71,16 @@ router.get('/:movie_id/cinemas/:cinema_id/rooms/:room_id', async function (ctx, 
   
 });
 
+router.get('/:movie_id/cinemas/:cinema_id/rooms/:room_id/confirm', async function (ctx, next) {
+    
+  ctx.state = {
+    title: 'Drivers 电影'
+  };
+
+  await ctx.render('confirm', {
+    page_name: '确认订单'
+  });
+  
+});
+
 module.exports = router;
