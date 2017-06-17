@@ -24,7 +24,8 @@ window.onload = function (argument) {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json" 
-            },        
+            },
+            credentials: 'include',
             body: JSON.stringify(payload)
         }).then(function(res) {
             if (res.status !== 200) {
