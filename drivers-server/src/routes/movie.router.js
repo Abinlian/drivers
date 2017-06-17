@@ -5,7 +5,6 @@ const movieModel = require('../models/movie.model');
 router.get('/', async function (ctx, next) {
   
   let movies = await movieModel.findAllMovies();
-  // console.log(movies);
 
   ctx.state = {
       movies
@@ -21,7 +20,6 @@ router.get('/:movie_id', async function (ctx, next) {
 
   let movie_description = await movieModel.findOneMovieDescriptionByMovieId(movie_id);
   movie_description = movie_description[0];
-  // console.log(movie_description);
 
   ctx.state = {
       movie_description,
@@ -43,8 +41,6 @@ router.get('/:movie_id/cinemas', async function (ctx, next) {
   for (let cinema of cinemas) {
     cinema.shows = await movieModel.findAllShowsByCinemaId(cinema.id)
   }
-  // console.log(cinemas);
-  // console.log(cinemas[0].shows);
 
   ctx.state = {
     title: 'Drivers 电影',
@@ -54,32 +50,56 @@ router.get('/:movie_id/cinemas', async function (ctx, next) {
     remarks: []
   };
 
-  await ctx.render('cinema-list', {
-    page_name: '电影院选择页面'
-  });
+  await ctx.render('cinema-list');
 });
 
-router.get('/:movie_id/cinemas/:cinema_id/rooms/:room_id', async function (ctx, next) {
-    
+router.get('/:movie_id/cinemas/:cinema_id/shows/:show_id', async function (ctx, next) {
+  let user_id = ctx.session.user.id;
+  let show_id = ctx.params.show_id;
+  let show = await movieModel.findOneShowByShowId(show_id);
+  show = show[0];
+  let seats = await movieModel.findAllSeatsByRoomId(show.room_id);
+  let self_seats = await movieModel.findSeatsSelectedBySelfByShowId(show_id, user_id);
+  self_seats = JSON.stringify(self_seats);
+  let others_seats = await movieModel.findSeatsSelectedByOthersByShowId(show_id, user_id);
+  others_seats = JSON.stringify(others_seats);
+
   ctx.state = {
-    title: 'Drivers 电影'
+    title: 'Drivers 电影',
+    seats,
+    self_seats,
+    others_seats
   };
 
-  await ctx.render('index', {
-    page_name: '座位选择页面'
-  });
+  await ctx.render('seat-select-page');
   
 });
 
-router.get('/:movie_id/cinemas/:cinema_id/rooms/:room_id/confirm', async function (ctx, next) {
-    
+router.get('/:movie_id/cinemas/:cinema_id/shows/:show_id/confirm/:jseat_select', async function (ctx, next) {
+  let movie_id = ctx.params.movie_id;
+  let cinema_id = ctx.params.cinema_id;
+  let show_id = ctx.params.show_id;
+  let jseats = ctx.params.jseat_select;
+
+  let movie = await movieModel.findOneMovieByMovieId(movie_id);
+  movie = movie[0];
+  let cinema = await movieModel.findOneCinemaByCinemaId(cinema_id);
+  cinema = cinema[0];
+  let show = await movieModel.findOneShowByShowId(show_id);
+  show = show[0];
+  let room = await movieModel.findOneRoomByRoomId(show.room_id);
+  room = room[0];
+  
   ctx.state = {
-    title: 'Drivers 电影'
+    title: 'Drivers 电影',
+    show,
+    movie,
+    room,
+    cinema,
+    jseats
   };
 
-  await ctx.render('confirm', {
-    page_name: '确认订单'
-  });
+  await ctx.render('confirm');
   
 });
 

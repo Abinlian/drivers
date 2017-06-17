@@ -1,38 +1,64 @@
 doctype html
 html
-
   head
     meta(charset="utf-8")
-    link(rel="stylesheet" href="http://ms0.meituan.net/movie/css/base.41d4eff0.css")
+    title 确认订单
+    link(rel="stylesheet" href="/stylesheets/confirm-base.css")
+    script(type="text/javascript" src="/javascripts/confirm.js")
 
-body
-<div id="bd">
-<div class="pg-pay body">
-<h2>请在<span id="J_RemainingTime" data-time="899"><em>14</em> 分 <em>59</em> 秒</span>内支付完成</h2>
-<p class="intro">超时订单会自动取消，如遇支付问题，发送邮件：<strong>mail@example.com</strong></p>
-<p class="desc">请仔细核对场次信息，选座票不同于团购票，出票后将<i>无法退票和更换场次</i></p>
-<table class="details">
-<tr>
-<th>观影时间</th>
-<th>影片</th>
-<th>影院</th>
-<th>座位</th>
-</tr>
-<tr>
-<td><strong>今天</strong> (6月10日 周六)<strong> 14:00</strong></td>
-<td>新木乃伊</td>
-<td>1978电影城</td>
-<td>(1)排(1)座</td>
-</tr>
-</table>
-<p class="total">应付总额：<strong>&#165;100</strong></p>
-<form method="post" name="payForm" target="_blank">
-<input type="hidden" name="magicCards" />
-<div class="pay-handle">
-<p class="pay-amount">支付：<em>&#165;100</em></p>
-<p><input type="submit" name="submit" value="确认无误，去付款" class="btn btn-hot"  gaevent="pay/submit"/><a href="" target="_blank" id="J_submit"></a></p>
-<p class="remind-pay"><i></i>电影票购票成功后，<strong>无法退换票</strong></p>
-</div>
-</form>
-</div>
-</div>
+  body
+    div(id="bd")
+      div(class="pg-pay body")
+        h2 请在
+          span(id="J_RemainingTime" data-time="899")
+            em(id="minute") 4
+            span 分
+            em(id="second") 59
+            span 秒
+          span 内支付完成
+        p(class="intro") 超时订单会自动取消，如遇支付问题，发送邮件：
+          strong mail@example.com
+        p(class="desc") 请仔细核对场次信息，选座票不同于团购票，出票后将
+          i 无法退票和更换场次
+        table(class="details")
+          tr
+            th 观影时间
+            th 影片
+            th 影院
+            th 房间
+          tr
+            td
+              strong #{show.time}
+            td
+              strong #{movie.name}
+            td 
+              strong #{cinema.name}
+            td
+              strong #{room.name}
+        - var jshows = JSON.stringify(show);
+        table(class="details" id="detail" seats="#{jseats}" shows="#{jshows}")
+          tr
+            th 座位
+            th 价钱
+          - var total = 0;
+          - var seats = JSON.parse(jseats);
+          - for(i=0;i<seats.length;i++)
+            - total += show.price
+            tr
+              td
+                strong 第 #{seats[i].row} 排 第 #{seats[i].col} 列  
+              td
+                strong ¥#{show.price}
+        p(class="total") 应付总额：
+          strong(id="total-price") ¥#{total}
+        form(method="post" name="payForm" target="_blank")
+          input(type="hidden" name="magicCards")
+          div(class="pay-handle")
+            p(class="pay-amount") 支付：
+              em(id="total-pay") ¥#{total}
+            p
+              input(id="submit-button" type="submit" name="submit" value="确认无误，去付款" class="btn btn-hot"  gaevent="pay/submit")
+            p(class="remind-pay")
+              i
+              span 电影票购票成功后，
+              strong 无法退换票
